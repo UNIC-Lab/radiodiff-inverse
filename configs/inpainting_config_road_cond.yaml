@@ -1,0 +1,27 @@
+conditioning:
+  method: ps
+  params:
+    scale: 0.5
+
+data:
+  # Requires a custom dataset loader named 'radiomap' (not enabled in default pipeline).
+  name: 'radiomap'
+  root: 'data/'
+
+measurement:
+  operator:
+    name: 'inpainting'
+  
+  mask_opt:
+    # MODIFIED: 使用为道路传感器定制的 mask 类型
+    mask_type: 'road_sensors'
+    image_size: 256
+    margin: [0, 0]
+    # ADDED: 使用 box_size 的第一个值来定义道路宽度（即传感器覆盖范围）
+    # 例如，这里的 10 代表 10 个像素的宽度。
+    box_size: [10, 10]
+    # REMOVED: 'mask_ratio' 参数对于 'road_sensors' 类型是无效的，所以已移除。
+
+  noise:
+    name: 'gaussian'
+    sigma: 0.05

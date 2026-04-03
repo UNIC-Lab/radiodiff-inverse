@@ -1,0 +1,23 @@
+conditioning:
+  method: ps
+  params:
+    scale: 0.5
+
+data:
+  name: building
+  root: data/
+  image_dir: samples/DPM
+  building_dir: buildings_complete
+
+measurement:
+  operator:
+    name: inpainting
+  mask_opt:
+    mask_type: sensor_rect
+    mask_ratio: 0.5
+    image_size: 256
+    margin: [0, 0]
+
+  noise:
+    name: gaussian
+    sigma: 0.05

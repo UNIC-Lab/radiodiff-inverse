@@ -1,0 +1,26 @@
+conditioning:
+  method: ps
+  params:
+    scale: 0.5
+
+data:
+  name: imagenet
+  root: ./data/val_images/
+
+measurement:
+  operator:
+    name: inpainting
+  mask_opt:
+    # mask_type: box
+    # mask_len_range: !!python/tuple [128, 129]  # for box
+    # # mask_prob_range: !!python/tuple [0.90, 0.92]  # for random
+    # image_size: 256
+    mask_type: fixed_rect   # 使用固定矩形掩码类型
+    num_masks: 10000           # 控制生成的2x3掩码数量
+    image_size: 256
+    margin: !!python/tuple [16, 16]  # 可选，根据需要调整边距
+
+
+  noise:
+    name: gaussian
+    sigma: 0.05

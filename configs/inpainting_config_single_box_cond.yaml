@@ -1,0 +1,26 @@
+conditioning:
+  method: ps
+  params:
+    scale: 0.5
+
+data:
+  name: building
+  root: data/
+  image_dir: samples/DPM
+  building_dir: buildings_complete
+
+measurement:
+  operator:
+    name: inpainting
+  mask_opt:
+    mask_type: single_box
+    mask_ratio: 0.5  # 注意：单box掩码不会严格遵循这个比例，而是由box_size决定
+    image_size: 256
+    margin: [10, 10]
+    # box_size: [128, 128]  # 方块大小，可以调整
+    box_size: [32, 32]  # 方块大小，可以调整    
+
+  noise:
+    name: gaussian
+    # sigma: 0.05 
+    sigma: 0.09

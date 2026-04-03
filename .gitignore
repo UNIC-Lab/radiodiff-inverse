@@ -1,0 +1,60 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Python cache / build artifacts
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*~
+
+# Model checkpoints and binaries
+*.pt
+*.pth
+*.ckpt
+*.bin
+
+# Runtime outputs
+results/*
+!results/README.md
+!results/.gitkeep
+
+# Local datasets (data/ also contains source code: keep .py files)
+data/samples/
+data/val_images/
+data/antennas/
+data/buildings_complete/
+data/__pycache__/
+data/.DS_Store
+
+# Local model folder (keep only docs/placeholders)
+models/*
+!models/README.md
+!models/.gitkeep
+
+# Metric/image aggregation outputs
+result/
+metrics/
+table/
+
+# Misc generated files
+*.npy
+*.npz
